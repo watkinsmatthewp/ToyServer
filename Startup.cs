@@ -19,6 +19,9 @@ namespace ToyServer
         {
             app.Run(async (context) =>
             {
+                Console.WriteLine("==============================");
+                Console.WriteLine($"Processing request from {context.Connection.LocalIpAddress}");
+                Console.WriteLine("..............................");
                 await context.Response.WriteAsync(await RequestHandler.HandleRequest(context));
             });
         }
