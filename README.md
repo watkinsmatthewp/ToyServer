@@ -32,15 +32,22 @@ http://localhost:5000/path/to/page?id=4
 ### Example HTTP Request Catpure
 
 ```
-GET http://localhost:5000/path/to/page?id=4 HTTP/1.1
+8/11/2017 18:10:04: Processing request from ::1
+----------   BEGIN   ----------
+GET http://localhost:5000/area/controller/action?id=5 HTTP/1.1
+Cache-Control: max-age=0
 Connection: keep-alive
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
 Accept-Encoding: gzip, deflate, br
-Accept-Language: en-US,en;q=0.8
+Accept-Language: en-US,en;q=0.8,es;q=0.6
+Cookie: _ga=GA1.1.1680484914.1500667286
 Host: localhost:5000
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36
 Upgrade-Insecure-Requests: 1
 DNT: 1
+
+
+----------    END    ----------
 ```
 
 ### Example HTTP Response 
