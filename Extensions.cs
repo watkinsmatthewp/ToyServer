@@ -17,6 +17,8 @@ namespace ToyServer
             "X-Original-For"
         };
 
+        // NOTE: Code re-used and modified from the asnwer given at
+        // https://stackoverflow.com/questions/16421961/read-raw-data-from-context-httprequest-in-c-sharp
         public static async Task WriteRawHttp(this HttpRequest request, params Stream[] streams)
         {
             var writers = streams
