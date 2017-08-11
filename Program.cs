@@ -22,6 +22,7 @@ namespace ToyServer
                 .Build();
 
             host.Run();
+            Console.WriteLine();
         }
     }
 }
