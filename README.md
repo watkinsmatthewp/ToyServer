@@ -1,4 +1,4 @@
-# ToyServer
+![](toy-server-header.jpg)
 
 ToyServer is a small cross-platform .NET Core application that allows you to spin up a tiny server from the command line and log incoming HTTP requests.
 
@@ -53,3 +53,13 @@ DNT: 1
 ### Example HTTP Response 
 
 `Request logged to: C:\Users\your-user\AppData\Local\Temp\ToyServerRequests\2017-08-11-17-40-46.636380700463164071.http`
+
+### Wait but why?
+
+I had a case at work where one of our integration partners said we weren't including a certain header in our payloads when we hit their API. But while our our application traffic logging includes the "meat" of our HTTP traffic (URL, response codes, and payload), it doesn't log all the headers. And I wasn't about to go rewriting the shared logging component we use to include all that stuff and fill up our poor logging directory beyond the abuse we're already hitting it wtih when we only need it to answer this one partner one time. Also, I knew that when I told this partner we _were_ in fact sendin this header, I would need to include the raw HTTP byte for byte as proof.
+
+First, I tried running the app locally and inspecting the traffic in Fiddler, but ran into a problem getting [Eric's instructions](https://www.telerik.com/blogs/capturing-traffic-from-.net-services-with-fiddler) to work on my box. So no dice there.
+
+However, I _did_ have access to modify the endpoint URL the application uses. I could have created a new MVC website and gotten creative with that, but I was pressed for time and it seemed like a huge overhead to spin up a new web project and get it all configured to run locally just so I can inspect some headers. 
+
+So I quickly wrote this stupid simple little console app. It has one job: log incoming HTTP requests byte for byte. Each request to one file. No overhead, no special processing-- that's it.
